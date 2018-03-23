@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //window?.rootViewController=NewFeatureViewController()
-        window?.rootViewController=WelcomeViewController()
+        //window?.rootViewController=WelcomeViewController()
+        window?.rootViewController=defaultRootViewController
         return true
     }
 
@@ -43,7 +44,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    public var defaultRootViewController:UIViewController{
+        //判断是否登录
+        if UserAccountViewModel.sharedUserAccount.userLogon {
+            return isNewVersion ? NewFeatureViewController() : WelcomeViewController()
+        }
+        return MainViewController()
+    }
 
 
 }
+extension AppDelegate{
+    //判断是否新版本
+    public var isNewVersion: Bool{
+        //1 当前版本   －info.polist
+        let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+      
+        let version = Double(currentVersion)!
+        print("当前版本\(version)")
+        //2之前的版本，把当前版本保存在用户偏好 － 如果key不存在，返回0
+        let sandboxVersionKey = "sandboxVersionKey"
+        let sandboxVersion = UserDefaults.standard.double(forKey: sandboxVersionKey)
+        
+        return version > sandboxVersion
+    }
+    
+}
+
 
