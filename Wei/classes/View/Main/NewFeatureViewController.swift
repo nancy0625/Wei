@@ -137,7 +137,7 @@ class NewFeatureViewController: UICollectionViewController {
             
         }
         @objc private func clickStartButton(){
-            print("开始体验")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBSwitchRootViewControllerNotification), object: nil)
         }
     
 

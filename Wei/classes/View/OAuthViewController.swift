@@ -89,15 +89,14 @@ extension OAuthViewController: UIWebViewDelegate{
         }*/
         UserAccountViewModel.sharedUserAccount.loadAccessToken(code: code!){
             (isSuccessed)->() in
-            if isSuccessed 
+            if !isSuccessed
             {
-                print("成功了")
-                print(UserAccountViewModel.sharedUserAccount.account!)
+                return
+               
+                //print(UserAccountViewModel.sharedUserAccount.account!)
             }
-            else
-            {
-                print("失败了")
-            }
+            
+            
         }
         return false
     }

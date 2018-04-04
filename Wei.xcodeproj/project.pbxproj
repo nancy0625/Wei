@@ -11,6 +11,7 @@
 		18185BCF20624C10009CC289 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18185BCE20624C10009CC289 /* UILabel+Extension.swift */; };
 		18185BD120624C45009CC289 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18185BD020624C45009CC289 /* WelcomeViewController.swift */; };
 		182F8B4E1FE0EA1300F00F76 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F8B4D1FE0EA1300F00F76 /* NewFeatureViewController.swift */; };
+		1884A2692074648E00B14788 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884A2682074648E00B14788 /* Common.swift */; };
 		189584F81FAAD12B00E4A8B5 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189584F71FAAD12B00E4A8B5 /* UserAccountViewModel.swift */; };
 		18A59F181FA1881D00B19ADE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A59F171FA1881D00B19ADE /* UserAccount.swift */; };
 		18C387BF1F96FD9D00E70595 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C387BE1F96FD9D00E70595 /* OAuthViewController.swift */; };
@@ -55,6 +56,7 @@
 		18185BCE20624C10009CC289 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		18185BD020624C45009CC289 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		182F8B4D1FE0EA1300F00F76 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
+		1884A2682074648E00B14788 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		189584F71FAAD12B00E4A8B5 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		18A59F171FA1881D00B19ADE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		18C387BE1F96FD9D00E70595 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				3FB2C4FF1F6A2B3700CC6E57 /* Extension */,
 				18F97FAD1F8DC9EA00B18669 /* NetworkTools.swift */,
+				1884A2682074648E00B14788 /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -466,12 +469,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Wei/Pods-Wei-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +524,7 @@
 				18185BCB20624BBA009CC289 /* UIImageView+Extension.swift in Sources */,
 				3FC8CBF21F720A5F00E07694 /* VisitorTableViewController.swift in Sources */,
 				3FC8CBF61F720EA400E07694 /* VisitorView.swift in Sources */,
+				1884A2692074648E00B14788 /* Common.swift in Sources */,
 				3F8ABED11F68D68D00D9E4D5 /* MessageTableViewController.swift in Sources */,
 				182F8B4E1FE0EA1300F00F76 /* NewFeatureViewController.swift in Sources */,
 				3F8ABE911F68D50E00D9E4D5 /* AppDelegate.swift in Sources */,

@@ -20,9 +20,10 @@ class UserAccountViewModel{
         
         
         if isExpired {
-            print("已经过期了")
+            print("已经过期了........................")
             // 如果过期了，则清空数据
             account = nil
+            
         }
     }
     
@@ -36,8 +37,9 @@ class UserAccountViewModel{
         //过期返回true
         return true
     }
-    var userLogon:Bool{
+    var userLogin:Bool{
         //如果token有值，则说明登录成功
+       // print(account?.access_token)
         // r如果没有过期，则说明登录有效
         return account?.access_token != nil && isExpired
     }

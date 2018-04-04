@@ -10,7 +10,7 @@ import UIKit
 
 class VisitorTableViewController: UITableViewController {
     //用户登录标记
-    private var userLogon = UserAccountViewModel.sharedUserAccount.userLogon
+    private var userLogon = UserAccountViewModel.sharedUserAccount.userLogin
       //设置访客视图
     var visitorView : VisitorView?
     override func loadView() {

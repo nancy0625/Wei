@@ -68,14 +68,14 @@ class WelcomeViewController: UIViewController {
         UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: [], animations: {
             self.view.layoutIfNeeded()
         }) { (_) in
-            UIView.animate(withDuration: 0.8, animations: {
+            UIView.animate(withDuration: 0.8, animations: {() -> Void in
                 self.welcomeLabel.alpha = 1
-            }) { (_) in
-                
-                
-            }
+        }, completion: { (_) -> Void in
+            //发送通知
+           NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBSwitchRootViewControllerNotification), object: nil)
+            })
         }
-       
+        
     }
     
 }

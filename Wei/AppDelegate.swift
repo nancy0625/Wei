@@ -20,7 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //window?.rootViewController=NewFeatureViewController()
         //window?.rootViewController=WelcomeViewController()
         window?.rootViewController=defaultRootViewController
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: WBSwitchRootViewControllerNotification), object: nil, queue: nil) { [weak self] (notification) -> Void in
+            let vc = notification.object != nil ? WelcomeViewController() : MainViewController()
+            //切换控制器
+            //self?.window?.rootViewController = MainViewController()
+            self?.window?.rootViewController = vc
+        }
         return true
+    }
+    deinit {
+        //注销通知
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: WBSwitchRootViewControllerNotification), object: nil)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -44,14 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    public var defaultRootViewController:UIViewController{
-        //判断是否登录
-        if UserAccountViewModel.sharedUserAccount.userLogon {
-            return isNewVersion ? NewFeatureViewController() : WelcomeViewController()
-        }
-        return MainViewController()
-    }
-
+    
 
 }
 extension AppDelegate{
@@ -68,7 +71,17 @@ extension AppDelegate{
         
         return version > sandboxVersion
     }
-    
+    public var defaultRootViewController:UIViewController{
+        print(UserAccountViewModel.sharedUserAccount.userLogin)
+        //判断是否登录
+        if UserAccountViewModel.sharedUserAccount.userLogin {
+            return isNewVersion ? NewFeatureViewController() : WelcomeViewController()
+        }
+        
+        //返回没有登录的主控制器
+        return MainViewController()
+    }
+
 }
 
 
