@@ -30,6 +30,19 @@ class NetworkTools: AFHTTPSessionManager {
     
 }
 extension NetworkTools{
+    //加载微博数据
+    func loadStatus(finished:@escaping HMRequestCallBack) {
+        //1.获取token字典
+        guard let params = tokenDict else {
+            //如果字典为nil 通知调用方，token 无效
+            finished(nil,NSError(domain:"cn.itcast.error",code:-1001,userInfo:["message":"token 为空"]))
+            return
+        }
+        //准备网络参数
+        let urlString = "https://api.weibo.com/2/statuses/home_ftimeline.json"
+        //3.发起网络请求
+        request(method: .GET, URLString: urlString, parameters: params, finished: finished)
+    }
     
     func request(method:HMRequestMethod, URLString:String,
                  parameters:[String:AnyObject]?,

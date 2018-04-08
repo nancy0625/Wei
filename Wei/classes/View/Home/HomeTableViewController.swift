@@ -10,10 +10,28 @@ import UIKit
 import SVProgressHUD
 
 class HomeTableViewController: VisitorTableViewController {
+    //加载数据
+    private func loadData(){
+        NetworkTools.sharedTools.loadStatus { (result, error) -> () in
+            if error != nil {
+                print("出错了")
+                return
+            }
+
+            print(result)
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        visitorView?.setuoInfo(imageName: nil, title: "关注一些人，回这里看看有什么惊喜")
+        
+       
+        if !UserAccountViewModel.sharedUserAccount.userLogin {
+            visitorView?.setuoInfo(imageName: nil, title: "关注一些人，回这里看看有什么惊喜")
+            return
+        }
+        loadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

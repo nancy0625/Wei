@@ -39,9 +39,9 @@ class UserAccountViewModel{
     }
     var userLogin:Bool{
         //如果token有值，则说明登录成功
-       // print(account?.access_token)
+        print(account?.access_token)
         // r如果没有过期，则说明登录有效
-        return account?.access_token != nil && isExpired
+        return account?.access_token != nil && !isExpired
     }
     static let sharedUserAccount = UserAccountViewModel()
     

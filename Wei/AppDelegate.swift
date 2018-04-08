@@ -68,16 +68,19 @@ extension AppDelegate{
         //2之前的版本，把当前版本保存在用户偏好 － 如果key不存在，返回0
         let sandboxVersionKey = "sandboxVersionKey"
         let sandboxVersion = UserDefaults.standard.double(forKey: sandboxVersionKey)
+        print(sandboxVersion)
+        //3.保存当前版本
+        UserDefaults.standard.set(version, forKey: sandboxVersionKey)
         
         return version > sandboxVersion
     }
     public var defaultRootViewController:UIViewController{
         print(UserAccountViewModel.sharedUserAccount.userLogin)
         //判断是否登录
+        print("UserAccountViewModel.sharedUserAccount.userLogin:\(UserAccountViewModel.sharedUserAccount.userLogin)")
         if UserAccountViewModel.sharedUserAccount.userLogin {
             return isNewVersion ? NewFeatureViewController() : WelcomeViewController()
         }
-        
         //返回没有登录的主控制器
         return MainViewController()
     }
