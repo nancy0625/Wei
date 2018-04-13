@@ -39,7 +39,7 @@ extension NetworkTools{
             return
         }
         //准备网络参数
-        let urlString = "https://api.weibo.com/2/statuses/home_ftimeline.json"
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         //3.发起网络请求
         request(method: .GET, URLString: urlString, parameters: params, finished: finished)
     }

@@ -22,11 +22,11 @@ class Status: NSObject {
             setValuesForKeys(dict)
         }
         //为了有效地讲字典转化为模型
-    override func setValue(_ value: Any?, forKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
     override var description: String {
-        let keys = ["id","text","created_at","sources"]
+        let keys = ["id","text","created_at","source"]
         return dictionaryWithValues(forKeys: keys).description
     }
     
