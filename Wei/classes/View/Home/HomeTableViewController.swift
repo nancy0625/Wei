@@ -59,7 +59,9 @@ class HomeTableViewController: VisitorTableViewController {
 
         //测试微博信息内容
         //cell.textLabel?.text = dataList![indexPath.row].text
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+        //cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+        //cell.textLabel?.text = listViewModel.statusList[indexPath.row].user?.screen_name
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
         return cell
     }
     

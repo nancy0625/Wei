@@ -10,7 +10,8 @@ import UIKit
 
 class StatusListViewModel {
     //微博数据数组  上拉／下拉刷新
-    lazy var statusList = [Status]()
+    //lazy var statusList = [Status]()
+    lazy var statusList = [StatusViewModel]()
     //加载网络数据
     func loadStatus(finished: @escaping (_ isSuccesses: Bool) -> ()) {
         NetworkTools.sharedTools.loadStatus { (result, error) -> () in
@@ -27,10 +28,13 @@ class StatusListViewModel {
                     finished(false)
                     return
             }
-            var dataList = [Status]()
+            //1. 可变的数组
+            //var dataList = [Status]()
+            var dataList = [StatusViewModel]()
             //2.遍历数组
             for dict in array {
-                dataList.append(Status(dict:dict))
+                //dataList.append(Status(dict:dict))
+                dataList.append(StatusViewModel(status: Status(dict: dict)))
             }
             //测试
             //print(dataList)

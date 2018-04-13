@@ -17,6 +17,8 @@
 		18A59F181FA1881D00B19ADE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A59F171FA1881D00B19ADE /* UserAccount.swift */; };
 		18BFBA95207DA23F004E0713 /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBA94207DA23F004E0713 /* StatusListViewModel.swift */; };
 		18C387BF1F96FD9D00E70595 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C387BE1F96FD9D00E70595 /* OAuthViewController.swift */; };
+		18C641032080505600E9AB19 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C641022080505600E9AB19 /* User.swift */; };
+		18C64105208053E800E9AB19 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C64104208053E800E9AB19 /* StatusViewModel.swift */; };
 		18F97FAE1F8DC9EA00B18669 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97FAD1F8DC9EA00B18669 /* NetworkTools.swift */; };
 		3F8ABE911F68D50E00D9E4D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABE901F68D50E00D9E4D5 /* AppDelegate.swift */; };
 		3F8ABE931F68D50E00D9E4D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABE921F68D50E00D9E4D5 /* ViewController.swift */; };
@@ -64,6 +66,8 @@
 		18A59F171FA1881D00B19ADE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		18BFBA94207DA23F004E0713 /* StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
 		18C387BE1F96FD9D00E70595 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		18C641022080505600E9AB19 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		18C64104208053E800E9AB19 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		18F97FAD1F8DC9EA00B18669 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		3E963B88956A52F810E00B1B /* Pods-Wei.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wei.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wei/Pods-Wei.release.xcconfig"; sourceTree = "<group>"; };
 		3F8ABE8D1F68D50E00D9E4D5 /* Wei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wei.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +207,7 @@
 			children = (
 				18A59F171FA1881D00B19ADE /* UserAccount.swift */,
 				18086C762079C5E60000E020 /* Status.swift */,
+				18C641022080505600E9AB19 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			children = (
 				189584F71FAAD12B00E4A8B5 /* UserAccountViewModel.swift */,
 				18BFBA94207DA23F004E0713 /* StatusListViewModel.swift */,
+				18C64104208053E800E9AB19 /* StatusViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -526,12 +532,14 @@
 				3F8ABE931F68D50E00D9E4D5 /* ViewController.swift in Sources */,
 				189584F81FAAD12B00E4A8B5 /* UserAccountViewModel.swift in Sources */,
 				18185BD120624C45009CC289 /* WelcomeViewController.swift in Sources */,
+				18C641032080505600E9AB19 /* User.swift in Sources */,
 				3F8ABECF1F68D67C00D9E4D5 /* DiscoverTableViewController.swift in Sources */,
 				18086C772079C5E60000E020 /* Status.swift in Sources */,
 				3FB2C5011F6A2B7600CC6E57 /* UIButton+Extension.swift in Sources */,
 				18185BCB20624BBA009CC289 /* UIImageView+Extension.swift in Sources */,
 				18BFBA95207DA23F004E0713 /* StatusListViewModel.swift in Sources */,
 				3FC8CBF21F720A5F00E07694 /* VisitorTableViewController.swift in Sources */,
+				18C64105208053E800E9AB19 /* StatusViewModel.swift in Sources */,
 				3FC8CBF61F720EA400E07694 /* VisitorView.swift in Sources */,
 				1884A2692074648E00B14788 /* Common.swift in Sources */,
 				3F8ABED11F68D68D00D9E4D5 /* MessageTableViewController.swift in Sources */,
