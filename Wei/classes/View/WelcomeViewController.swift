@@ -62,7 +62,7 @@ class WelcomeViewController: UIViewController {
         //更新约束
         iconView.snp.updateConstraints{
             (make) in
-            make.bottom.equalTo(view.snp_bottom).offset(-view.bounds.height + 200)
+            make.bottom.equalTo(view.snp.bottom).offset(-view.bounds.height + 200)
         }
         welcomeLabel.alpha = 0
         UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: [], animations: {
@@ -85,18 +85,18 @@ extension WelcomeViewController{
         view.addSubview(iconView)
         
         //自动布局
-        iconView.snp_makeConstraints{
+        iconView.snp.makeConstraints{
             (make) in
-            make.centerX.equalTo(view.snp_centerX)
-            make.bottom.equalTo(view.snp_bottom).offset(-200)
+            make.centerX.equalTo(view.snp.centerX)
+            make.bottom.equalTo(view.snp.bottom).offset(-200)
             make.width.equalTo(90)
             make.height.equalTo(90)
         }
         view.addSubview(welcomeLabel)
-        welcomeLabel.snp_makeConstraints{
+        welcomeLabel.snp.makeConstraints{
             (make) in
-            make.centerX.equalTo(iconView.snp_centerX)
-            make.top.equalTo(iconView.snp_bottom).offset(16)
+            make.centerX.equalTo(iconView.snp.centerX)
+            make.top.equalTo(iconView.snp.bottom).offset(16)
         }
         
     }

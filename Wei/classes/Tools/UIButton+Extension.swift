@@ -23,12 +23,20 @@ extension UIButton{
         //会根据背景图片的大小调整尺寸
         sizeToFit()
     }
-    convenience init(title:String,color:UIColor,imageName:String)
+    convenience init(title:String,color:UIColor,backImageName:String)
     {
         self.init()
         setTitle(title, for: .normal)
         setTitleColor(color, for: .normal)
-        setBackgroundImage(UIImage(named:imageName), for: .normal)
+        setBackgroundImage(UIImage(named:backImageName), for: .normal)
+        sizeToFit()
+    }
+    convenience init(title:String, fontSize: CGFloat, color: UIColor,imageName: String){
+        self.init()
+        setTitle(title, for: .normal)
+        setTitleColor(color, for: .normal)
+        setImage(UIImage(named: imageName), for: .normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         sizeToFit()
     }
 }

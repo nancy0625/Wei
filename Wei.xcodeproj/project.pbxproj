@@ -19,6 +19,9 @@
 		18C387BF1F96FD9D00E70595 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C387BE1F96FD9D00E70595 /* OAuthViewController.swift */; };
 		18C641032080505600E9AB19 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C641022080505600E9AB19 /* User.swift */; };
 		18C64105208053E800E9AB19 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C64104208053E800E9AB19 /* StatusViewModel.swift */; };
+		18C641082080556D00E9AB19 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C641072080556D00E9AB19 /* StatusCell.swift */; };
+		18C6410A2080564200E9AB19 /* StatusCellTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C641092080564200E9AB19 /* StatusCellTopView.swift */; };
+		18C6410C2080565A00E9AB19 /* StatusCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C6410B2080565A00E9AB19 /* StatusCellBottomView.swift */; };
 		18F97FAE1F8DC9EA00B18669 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97FAD1F8DC9EA00B18669 /* NetworkTools.swift */; };
 		3F8ABE911F68D50E00D9E4D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABE901F68D50E00D9E4D5 /* AppDelegate.swift */; };
 		3F8ABE931F68D50E00D9E4D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABE921F68D50E00D9E4D5 /* ViewController.swift */; };
@@ -68,6 +71,9 @@
 		18C387BE1F96FD9D00E70595 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		18C641022080505600E9AB19 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		18C64104208053E800E9AB19 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		18C641072080556D00E9AB19 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		18C641092080564200E9AB19 /* StatusCellTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCellTopView.swift; sourceTree = "<group>"; };
+		18C6410B2080565A00E9AB19 /* StatusCellBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCellBottomView.swift; sourceTree = "<group>"; };
 		18F97FAD1F8DC9EA00B18669 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		3E963B88956A52F810E00B1B /* Pods-Wei.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wei.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wei/Pods-Wei.release.xcconfig"; sourceTree = "<group>"; };
 		3F8ABE8D1F68D50E00D9E4D5 /* Wei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wei.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +141,16 @@
 				18C387BE1F96FD9D00E70595 /* OAuthViewController.swift */,
 			);
 			name = OAuth;
+			sourceTree = "<group>";
+		};
+		18C641062080554200E9AB19 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				18C641072080556D00E9AB19 /* StatusCell.swift */,
+				18C641092080564200E9AB19 /* StatusCellTopView.swift */,
+				18C6410B2080565A00E9AB19 /* StatusCellBottomView.swift */,
+			);
+			name = StatusCell;
 			sourceTree = "<group>";
 		};
 		3F8ABE841F68D50E00D9E4D5 = {
@@ -247,6 +263,7 @@
 		3F8ABEC31F68D5A300D9E4D5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				18C641062080554200E9AB19 /* StatusCell */,
 				3F8ABECC1F68D65800D9E4D5 /* HomeTableViewController.swift */,
 			);
 			path = Home;
@@ -524,6 +541,7 @@
 			files = (
 				18185BCF20624C10009CC289 /* UILabel+Extension.swift in Sources */,
 				3F8ABED31F68D69E00D9E4D5 /* ProfileTableViewController.swift in Sources */,
+				18C6410A2080564200E9AB19 /* StatusCellTopView.swift in Sources */,
 				18F97FAE1F8DC9EA00B18669 /* NetworkTools.swift in Sources */,
 				3F8ABECD1F68D65800D9E4D5 /* HomeTableViewController.swift in Sources */,
 				3F8ABECB1F68D61C00D9E4D5 /* MainViewController.swift in Sources */,
@@ -542,9 +560,11 @@
 				18C64105208053E800E9AB19 /* StatusViewModel.swift in Sources */,
 				3FC8CBF61F720EA400E07694 /* VisitorView.swift in Sources */,
 				1884A2692074648E00B14788 /* Common.swift in Sources */,
+				18C6410C2080565A00E9AB19 /* StatusCellBottomView.swift in Sources */,
 				3F8ABED11F68D68D00D9E4D5 /* MessageTableViewController.swift in Sources */,
 				182F8B4E1FE0EA1300F00F76 /* NewFeatureViewController.swift in Sources */,
 				3F8ABE911F68D50E00D9E4D5 /* AppDelegate.swift in Sources */,
+				18C641082080556D00E9AB19 /* StatusCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

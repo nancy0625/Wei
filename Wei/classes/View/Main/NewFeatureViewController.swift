@@ -122,7 +122,7 @@ class NewFeatureViewController: UICollectionViewController {
             }
             
         }
-          private lazy var startButton: UIButton = UIButton(title: "开始体验", color: UIColor.white, imageName: "new_feature_finish_button")
+          private lazy var startButton: UIButton = UIButton(title: "开始体验", color: UIColor.white, backImageName: "new_feature_finish_button")
         // 添加显示按钮动画效果的方法
         public func showButtonAnim()
         {

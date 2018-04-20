@@ -49,25 +49,10 @@ class VisitorView: UIView {
         label.textAlignment = NSTextAlignment.center
         return label
     }()
-    public lazy var registerButton: UIButton = {
-        let button = UIButton()
-        //设置普通状态下按钮文字
-        button.setTitle("注册", for: .normal)
-        //设置普通状态下按钮的文字颜色
-        button.setTitleColor(UIColor.orange, for: .normal)
-        //设置普通状态下按钮的背景图片
-        button.setBackgroundImage(UIImage(named:"common_button_white_disable"), for: .normal)
-        return button
-    }()
+    public lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange, backImageName: "common_button_white_disable")
     
     //登录按钮
-    public lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("登录", for: .normal)
-        button.setTitleColor(UIColor.orange, for: .normal)
-        button.setBackgroundImage(UIImage(named:"common_button_white_disable"), for: .normal)
-       return button
-    }()
+    public lazy var loginButton: UIButton = UIButton(title: "登录", color: UIColor.darkGray, backImageName: "common_button_white_disable")
     //遮罩图像
     public lazy var maskIconView:UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
 

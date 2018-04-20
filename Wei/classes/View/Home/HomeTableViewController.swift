@@ -55,13 +55,14 @@ class HomeTableViewController: VisitorTableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalId, for: indexPath) as! StatusCell
 
         //测试微博信息内容
         //cell.textLabel?.text = dataList![indexPath.row].text
         //cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         //cell.textLabel?.text = listViewModel.statusList[indexPath.row].user?.screen_name
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
+        //cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
+        cell.viewModel = listViewModel.statusList[indexPath.row]
         return cell
     }
     
@@ -100,16 +101,17 @@ class HomeTableViewController: VisitorTableViewController {
         return true
     }
     */
-
-    /*
+   
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        //注册可重用cell
+            }
+ 
     //加载数据
     private func loadData(){
        /** NetworkTools.sharedTools.loadStatus { (result, error) -> () in
@@ -155,7 +157,13 @@ class HomeTableViewController: VisitorTableViewController {
     }
     private func prepareTableView(){
         //注册可重用cell
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: StatusCellNormalId)
+        
+        tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellNormalId)
+        //tableView.rowHeight = 200
+        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+      
     }
 
     
