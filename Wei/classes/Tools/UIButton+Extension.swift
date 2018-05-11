@@ -12,11 +12,11 @@ extension UIButton{
     //－parameter imageName： 图像名称
     //－parameter backImageName 背景图像名称
     //returns：UIButton
-    convenience init(iamgeName:String, backImageName: String?) {
+    convenience init(imageName:String, backImageName: String?) {
         self.init()
         //设置图像
-        setImage(UIImage(named:iamgeName), for: .normal)
-        setImage(UIImage(named:iamgeName + "_higlighted"),for:.highlighted)
+        setImage(UIImage(named:imageName), for: .normal)
+        setImage(UIImage(named:imageName + "_higlighted"),for:.highlighted)
         //设置按钮背景图像
         setBackgroundImage(UIImage(named:backImageName!), for: .normal)
         setBackgroundImage(UIImage(named:backImageName!+"_higlighted"), for: .highlighted)

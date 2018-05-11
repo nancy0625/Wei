@@ -44,7 +44,7 @@ class MainViewController: UITabBarController {
     */
     // 懒加载
     public lazy var composedButton:UIButton = UIButton(
-        iamgeName: "tabbar_compose_icon_add",
+        imageName: "tabbar_compose_icon_add",
         backImageName: "tabbar_compose_button"
     )
 }

@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1802DA7F20900F45005CF0C5 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802DA7E20900F45005CF0C5 /* StatusPictureView.swift */; };
 		18086C772079C5E60000E020 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18086C762079C5E60000E020 /* Status.swift */; };
+		18129599209C015A00974CCC /* StatusNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18129598209C015A00974CCC /* StatusNormalCell.swift */; };
 		18185BCB20624BBA009CC289 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18185BCA20624BBA009CC289 /* UIImageView+Extension.swift */; };
 		18185BCF20624C10009CC289 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18185BCE20624C10009CC289 /* UILabel+Extension.swift */; };
 		18185BD120624C45009CC289 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18185BD020624C45009CC289 /* WelcomeViewController.swift */; };
+		1827BD4420994F1E00E9F107 /* StatusRetweetedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1827BD4320994F1E00E9F107 /* StatusRetweetedCell.swift */; };
+		182F41EA20A53BBA002BAAB1 /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F41E920A53BBA002BAAB1 /* WBRefreshControl.swift */; };
+		182F41EC20A53F18002BAAB1 /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182F41EB20A53F18002BAAB1 /* WBRefreshView.xib */; };
 		182F8B4E1FE0EA1300F00F76 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F8B4D1FE0EA1300F00F76 /* NewFeatureViewController.swift */; };
 		1884A2692074648E00B14788 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884A2682074648E00B14788 /* Common.swift */; };
 		189584F81FAAD12B00E4A8B5 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189584F71FAAD12B00E4A8B5 /* UserAccountViewModel.swift */; };
@@ -59,10 +64,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1802DA7E20900F45005CF0C5 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		18086C762079C5E60000E020 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		18129598209C015A00974CCC /* StatusNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNormalCell.swift; sourceTree = "<group>"; };
 		18185BCA20624BBA009CC289 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		18185BCE20624C10009CC289 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		18185BD020624C45009CC289 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		1827BD4320994F1E00E9F107 /* StatusRetweetedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusRetweetedCell.swift; sourceTree = "<group>"; };
+		182F41E920A53BBA002BAAB1 /* WBRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
+		182F41EB20A53F18002BAAB1 /* WBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
 		182F8B4D1FE0EA1300F00F76 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		1884A2682074648E00B14788 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		189584F71FAAD12B00E4A8B5 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
@@ -127,6 +137,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182F41E820A53B8C002BAAB1 /* RefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				182F41E920A53BBA002BAAB1 /* WBRefreshControl.swift */,
+				182F41EB20A53F18002BAAB1 /* WBRefreshView.xib */,
+			);
+			name = RefreshView;
+			sourceTree = "<group>";
+		};
 		1855D4112061F3C00047915F /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +168,9 @@
 				18C641072080556D00E9AB19 /* StatusCell.swift */,
 				18C641092080564200E9AB19 /* StatusCellTopView.swift */,
 				18C6410B2080565A00E9AB19 /* StatusCellBottomView.swift */,
+				1802DA7E20900F45005CF0C5 /* StatusPictureView.swift */,
+				1827BD4320994F1E00E9F107 /* StatusRetweetedCell.swift */,
+				18129598209C015A00974CCC /* StatusNormalCell.swift */,
 			);
 			name = StatusCell;
 			sourceTree = "<group>";
@@ -263,6 +285,7 @@
 		3F8ABEC31F68D5A300D9E4D5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				182F41E820A53B8C002BAAB1 /* RefreshView */,
 				18C641062080554200E9AB19 /* StatusCell */,
 				3F8ABECC1F68D65800D9E4D5 /* HomeTableViewController.swift */,
 			);
@@ -453,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F8ABE9B1F68D50E00D9E4D5 /* LaunchScreen.storyboard in Resources */,
+				182F41EC20A53F18002BAAB1 /* WBRefreshView.xib in Resources */,
 				3F8ABE981F68D50E00D9E4D5 /* Assets.xcassets in Resources */,
 				3F8ABE961F68D50E00D9E4D5 /* Main.storyboard in Resources */,
 			);
@@ -543,7 +567,10 @@
 				3F8ABED31F68D69E00D9E4D5 /* ProfileTableViewController.swift in Sources */,
 				18C6410A2080564200E9AB19 /* StatusCellTopView.swift in Sources */,
 				18F97FAE1F8DC9EA00B18669 /* NetworkTools.swift in Sources */,
+				182F41EA20A53BBA002BAAB1 /* WBRefreshControl.swift in Sources */,
 				3F8ABECD1F68D65800D9E4D5 /* HomeTableViewController.swift in Sources */,
+				1827BD4420994F1E00E9F107 /* StatusRetweetedCell.swift in Sources */,
+				1802DA7F20900F45005CF0C5 /* StatusPictureView.swift in Sources */,
 				3F8ABECB1F68D61C00D9E4D5 /* MainViewController.swift in Sources */,
 				18C387BF1F96FD9D00E70595 /* OAuthViewController.swift in Sources */,
 				18A59F181FA1881D00B19ADE /* UserAccount.swift in Sources */,
@@ -551,6 +578,7 @@
 				189584F81FAAD12B00E4A8B5 /* UserAccountViewModel.swift in Sources */,
 				18185BD120624C45009CC289 /* WelcomeViewController.swift in Sources */,
 				18C641032080505600E9AB19 /* User.swift in Sources */,
+				18129599209C015A00974CCC /* StatusNormalCell.swift in Sources */,
 				3F8ABECF1F68D67C00D9E4D5 /* DiscoverTableViewController.swift in Sources */,
 				18086C772079C5E60000E020 /* Status.swift in Sources */,
 				3FB2C5011F6A2B7600CC6E57 /* UIButton+Extension.swift in Sources */,

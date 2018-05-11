@@ -70,9 +70,9 @@ extension StatusCellBottomView {
         }
         sep2.snp.makeConstraints { (make) in
             make.left.equalTo(commentButton.snp.right)
-            make.centerY.equalTo(commentButton.snp.centerY)
+            make.centerY.equalTo(retweetedButton.snp.centerY)
             make.width.equalTo(w)
-            make.height.equalTo(commentButton.snp.height).multipliedBy(scale)
+            make.height.equalTo(retweetedButton.snp.height).multipliedBy(scale)
         }
     }
     public func sepView() -> UIView {

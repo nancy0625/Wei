@@ -19,12 +19,12 @@ class UserAccountViewModel{
         account = (NSKeyedUnarchiver.unarchiveObject(withFile: accountPath)as? UserAccount?)!
         
         
-        if isExpired {
-            print("已经过期了........................")
-            // 如果过期了，则清空数据
-            account = nil
-            
-        }
+//        if isExpired {
+//            print("已经过期了........................")
+//            // 如果过期了，则清空数据
+//            account = nil
+//            
+//        }
     }
     
     

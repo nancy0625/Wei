@@ -8,9 +8,12 @@
 
 import UIKit
 import SVProgressHUD
-
+//原创微博符号
+let StatusNormalCellId = "StatusNormalCellId"//微博cell（表格单元） 的可重用表示符
+//转发微博Cell的可重用符号
+let StatusCellRetweetedId = "StatusCellRetweetedId"
 class HomeTableViewController: VisitorTableViewController {
-    private let StatusCellNormalId = "StatusCellNormalId"//微博cell（表格单元） 的可重用表示符
+    // let StatusCellNormalId = "StatusCellNormalId"//微博cell（表格单元） 的可重用表示符
    
      //var dataList: [Status]?
     //微博数据列表模型
@@ -55,14 +58,17 @@ class HomeTableViewController: VisitorTableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalId, for: indexPath) as! StatusCell
-
+        //获取视图模型
+        let vm = listViewModel.statusList[indexPath.row]
+        //let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalId, for: indexPath) as! StatusCell
+          let cell = tableView.dequeueReusableCell(withIdentifier: /*StatusCellRetweetedId*/vm.cellId, for: indexPath) as! StatusCell
         //测试微博信息内容
         //cell.textLabel?.text = dataList![indexPath.row].text
         //cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         //cell.textLabel?.text = listViewModel.statusList[indexPath.row].user?.screen_name
         //cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
-        cell.viewModel = listViewModel.statusList[indexPath.row]
+       // cell.viewModel = listViewModel.statusList[indexPath.row]
+        cell.viewModel = vm
         return cell
     }
     
@@ -113,7 +119,7 @@ class HomeTableViewController: VisitorTableViewController {
             }
  
     //加载数据
-    private func loadData(){
+   @objc private func loadData(){
        /** NetworkTools.sharedTools.loadStatus { (result, error) -> () in
             if error != nil {
                 print("出错了")
@@ -155,14 +161,36 @@ class HomeTableViewController: VisitorTableViewController {
         
         
     }
-    private func prepareTableView(){
-        //注册可重用cell
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //获得模型
+       // let vm = listViewModel.statusList[indexPath.row]
+        //实例化
+        //let cell = StatusCell(style: .default, reuseIdentifier: StatusCellNormalId)
+        //返回行高
+        //return cell.rowHeight(vm: vm)
+        return listViewModel.statusList[indexPath.row].rowHeight
         
-        tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellNormalId)
-        //tableView.rowHeight = 200
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 200
+    }
+
+    private func prepareTableView(){
+        
+        //注册可重用cell
+        tableView.register(StatusNormalCell.self, forCellReuseIdentifier: StatusNormalCellId)
+         //tableView.register(StatusRetweetedCell.self, forCellReuseIdentifier: StatusCellNormalId)
+        tableView.register(StatusRetweetedCell.self, forCellReuseIdentifier: StatusCellRetweetedId)
+        //预估行高
+        tableView.estimatedRowHeight = 400
+         //自动计算行高
+        tableView.rowHeight = 400
+        
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = .none
+        
+        //下拉刷新控件默认没有 －－－ 高度60
+        
+        refreshControl = WBRefreshControl()
+        //添加监听方法
+        refreshControl?.addTarget(self, action: "loadData", for: UIControlEvents.valueChanged)
       
     }
 
