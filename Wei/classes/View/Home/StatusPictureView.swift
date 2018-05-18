@@ -75,7 +75,10 @@ extension StatusPictureView:UICollectionViewDataSource {
             //提取单图
             if let key = viewModel?.thumbnailUrls?.first?.absoluteString {
                 let image = SDWebImageManager.shared().imageCache!.imageFromDiskCache(forKey: key)
-                size = image!.size
+                if(image != nil){
+                      size = image!.size
+                }
+              
             }
             size.width = size.width < 40 ? 40 : size.width
             //图像过宽处理，等比例缩放
@@ -84,12 +87,14 @@ extension StatusPictureView:UICollectionViewDataSource {
                 let h = size.height * w / size.width
                 size = CGSize(width: w, height: h)
             }
+          
            
             //内部图片大小
             
             layout.itemSize = size
             //配图视图大小
             return size
+           
         }
         //四张
         if count == 4{

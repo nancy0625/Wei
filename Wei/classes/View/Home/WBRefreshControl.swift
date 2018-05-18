@@ -21,6 +21,12 @@ class WBRefreshControl: UIRefreshControl {
             make.center.equalTo(self.snp.center)
             make.size.equalTo(refreshView.bounds.size)
         }
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            DispatchQueue.main.async(execute: { 
+//               
+//                self.addObserver(self, forKeyPath: "frame", options: [], context: nil)
+//            })
+//        }
     }
    
     override init(){
