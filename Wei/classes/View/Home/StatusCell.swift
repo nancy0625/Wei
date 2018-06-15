@@ -113,6 +113,7 @@ extension StatusCell{
             make.height.equalTo(44)
            // make.bottom.equalTo(contentView.snp.bottom)
         }
+        
     
         
     }

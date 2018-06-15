@@ -31,13 +31,23 @@ class NetworkTools: AFHTTPSessionManager {
 }
 extension NetworkTools{
     //加载微博数据
-    func loadStatus(finished:@escaping HMRequestCallBack) {
-        //1.获取token字典
-        guard let params = tokenDict else {
+    func loadStatus(since_id: Int ,max_id: Int, finished:@escaping HMRequestCallBack) {
+        var params = [String: AnyObject]()
+               //1.获取token字典
+        guard let p = tokenDict else {
             //如果字典为nil 通知调用方，token 无效
             finished(nil,NSError(domain:"cn.itcast.error",code:-1001,userInfo:["message":"token 为空"]))
             return
         }
+        params["access_token"] = p["access_token"]
+        //判断是否下啦2
+        if since_id > 0{
+            params["since_id"] = since_id as AnyObject?
+        }else if max_id > 0 {
+            //上拉参数
+            params["max_id"] = max_id - 1 as AnyObject
+        }
+
         //准备网络参数
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         //3.发起网络请求

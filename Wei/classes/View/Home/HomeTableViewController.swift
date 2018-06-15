@@ -17,7 +17,21 @@ class HomeTableViewController: VisitorTableViewController {
    
      //var dataList: [Status]?
     //微博数据列表模型
-    private lazy var listViewModel = StatusListViewModel()
+    public lazy var listViewModel = StatusListViewModel()
+    
+    public lazy var pulldownTipLabel: UILabel = {
+        let label = UILabel(title: "", fontSize: 18, color: UIColor.white)
+        label.backgroundColor = UIColor.orange
+        self.navigationController?.navigationBar.insertSubview(label,at: 0)
+        return label
+    }()
+    
+    public lazy var pullupView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        indicator.color = UIColor.lightGray
+        return indicator
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,6 +83,10 @@ class HomeTableViewController: VisitorTableViewController {
         //cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
        // cell.viewModel = listViewModel.statusList[indexPath.row]
         cell.viewModel = vm
+        if indexPath.row == listViewModel.statusList.count - 1 && !pullupView.isAnimating{
+            pullupView.startAnimating()
+            loadData()
+        }
         return cell
     }
     
@@ -119,6 +137,7 @@ class HomeTableViewController: VisitorTableViewController {
             }
  
     //加载数据
+   
    @objc private func loadData(){
        /** NetworkTools.sharedTools.loadStatus { (result, error) -> () in
             if error != nil {
@@ -149,28 +168,27 @@ class HomeTableViewController: VisitorTableViewController {
            
             
         }*/
-        listViewModel.loadStatus { (isSuccessed) -> () in
+    //关闭刷行控件
+    refreshControl?.beginRefreshing()
+
+        listViewModel.loadStatus(isPullup: pullupView.isAnimating) { (isSuccessed) -> () in
+            //关闭刷新控件
+            self.refreshControl?.endRefreshing()
+             //关闭上拉刷新
+            self.pullupView.stopAnimating()
             if !isSuccessed {
                 SVProgressHUD.show(withStatus: "加载数据错误，请稍后再试")
                 return
             }
             print(self.listViewModel.statusList)
             // 刷新数据
+            self.showPulldownTip()
             self.tableView.reloadData()
         }
         
         
     }
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //获得模型
-       // let vm = listViewModel.statusList[indexPath.row]
-        //实例化
-        //let cell = StatusCell(style: .default, reuseIdentifier: StatusCellNormalId)
-        //返回行高
-        //return cell.rowHeight(vm: vm)
-        return listViewModel.statusList[indexPath.row].rowHeight
-        
-    }
+   
 
     private func prepareTableView(){
         
@@ -190,7 +208,8 @@ class HomeTableViewController: VisitorTableViewController {
         
         refreshControl = WBRefreshControl()
         //添加监听方法
-        refreshControl?.addTarget(self, action: "loadData", for: UIControlEvents.valueChanged)
+        refreshControl?.addTarget(self, action: #selector(HomeTableViewController.loadData), for: UIControlEvents.valueChanged)
+        tableView.tableFooterView = pullupView
       
     }
 
@@ -198,6 +217,36 @@ class HomeTableViewController: VisitorTableViewController {
    
 }
 extension HomeTableViewController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //获得模型
+        // let vm = listViewModel.statusList[indexPath.row]
+        //实例化
+        //let cell = StatusCell(style: .default, reuseIdentifier: StatusCellNormalId)
+        //返回行高
+        //return cell.rowHeight(vm: vm)
+        return listViewModel.statusList[indexPath.row].rowHeight
+        
+    }
+    
+    public func showPulldownTip() {
+        // 如果不是下拉刷新，则直接返回
+        guard let count = listViewModel.pulldownCount else {
+            return
+        }
+        pulldownTipLabel.text = (count == 0) ? "没有微博" : "刷新到\(count)条微博"
+        let height: CGFloat = 44
+        let rect = CGRect(x: 0, y: 0, width: view.bounds.width, height: height)
+        pulldownTipLabel.frame = rect.offsetBy(dx: 0,dy: -2 * height)
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            () -> Void in
+            self.pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: height)
+        }) { (_) in
+            UIView.animate(withDuration: 1.0){
+                self.pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: -2 * height)
+            }
+        }
+    }
     
 }
 
